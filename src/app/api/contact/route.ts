@@ -1,46 +1,64 @@
-import { NextResponse } from "next/server";
-import nodemailer from 'nodemailer';
-
-export async function POST(request:Request) {
-    try {
-        const {nombre, email, mensaje} = await request.json();
-
-        if (!nombre || !email || !mensaje) {
-            return NextResponse.json({error: 'Todos los campos son obligatorios'}, {status:400});
-        }
-
-        const transporter = nodemailer.createTransport({host:process.env.EMAIL_SERVER_HOST,
-            port: Number(process.env.EMAIL_SERVER_PORT),
-            secure:true,
-            auth:{
-                user:process.env.EMAIL_SERVER_USER,
-                pass: process.env.EMAIL_SERVER_PASSWORD,
-            },
-        });
-
-         const mailOptions = {
-      from: `"KODA WEB" <${process.env.EMAIL_SERVER_USER}>`, // Quien envía
-      to: process.env.EMAIL_TO, // A quien le llega 
-
-      subject: `Nuevo mensaje de contacto de: ${nombre}`,
-      html: `
-        <h1>Nuevo mensaje desde la web de KODA</h1>
-        <p><strong>Nombre:</strong> ${nombre}</p>
-        <p><strong>Email:</strong> ${email}</p>
-        <hr />
-        <p><strong>Mensaje:</strong></p>
-        <p>${mensaje.replace(/\n/g, '<br>')}</p>
-      `,
-    };
-
-    await transporter.sendMail(mailOptions);
+import { NextResponse } from 'next/server';
+import { Resend } from 'resend';
 
 
-    return NextResponse.json({message: 'Mensaje enviado con éxito'}, {status:200})
-    } catch (error) {
-        console.error(error);
+const resend = new Resend(process.env.RESEND_API_KEY);
 
-        return NextResponse.json({error:'Hubo un error al enviar el mensaje. Inténtalo de nuevo.'},{status:500});
-        
+const emailKoda = process.env.EMAIL_TO;
+
+export async function POST(request: Request) {
+  try {
+   
+    const { nombre, email, telefono, mensaje } = await request.json();
+
+   
+    if (!nombre || !email || !mensaje || !emailKoda) {
+      return NextResponse.json(
+        { error: 'Faltan campos obligatorios o la configuración del servidor es incorrecta.' },
+        { status: 400 }
+      );
     }
+
+    await Promise.all([
+     
+      resend.emails.send({
+        from: 'Sitio Web KODA <onboarding@resend.dev>',
+        to: emailKoda,
+        subject: `Nuevo mensaje de contacto de: ${nombre}`,
+   
+        replyTo: email, 
+        html: `
+          <h1>Nuevo mensaje desde la web de KODA</h1>
+          <p><strong>Nombre:</strong> ${nombre}</p>
+          <p><strong>Email del remitente:</strong> ${email}</p>
+          ${telefono ? `<p><strong>Teléfono:</strong> ${telefono}</p>` : ''}
+          <hr />
+          <p><strong>Mensaje:</strong></p>
+          <p>${mensaje.replace(/\n/g, '<br>')}</p>
+        `,
+      }),
+
+    
+      resend.emails.send({
+        from: 'KODA <onboarding@resend.dev>',
+        to: email,
+        subject: 'Hemos recibido tu mensaje | KODA',
+        html: `
+          <h1>¡Gracias por contactarnos, ${nombre}!</h1>
+          <p>Hemos recibido tu mensaje y nuestro equipo se pondrá en contacto contigo a la brevedad.</p>
+          <p>Este es un correo de confirmación automática.</p>
+          <br>
+          <p>Atentamente,</p>
+          <p>El equipo de KODA</p>
+        `,
+      }),
+    ]);
+
+  
+    return NextResponse.json({ message: 'Mensaje enviado con éxito' }, { status: 200 });
+
+  } catch (error) {
+    console.error(error);
+    return NextResponse.json({ error: 'Hubo un error al procesar tu solicitud.' }, { status: 500 });
+  }
 }
