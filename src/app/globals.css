@@ -1,3 +1,10 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+
+@theme {
+  --color-blue: #003366;          /* Azul marino oscuro (Principal para texto) */
+  --color-green: #009933;         /* Verde brillante (Botones, acentos) */
+  --color-green-dark: #006633;    /* Verde oscuro (Footer) */
+  --color-dark: #333333;          /* Texto secundario */
+  --color-gray-light: #F5F5F5;    /* Fondos */
+  --color-white: #FFFFFF;         /* Texto sobre fondos oscuros */
+}
