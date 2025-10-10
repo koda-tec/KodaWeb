@@ -1,13 +1,15 @@
-import ContactForm from '@/app/components/sections/ContactForm';
+import HeroSection from './components/sections/HeroSection';
+import ContactSection from './components/sections/ContactoSections';
+import AboutSection from './components/sections/AboutSection';
+
 
 export default function Home() {
   return (
     
     <main className="p-8"> 
-      <h1 className="text-2xl font-bold mb-4 text-center">Página de Prueba del Formulario</h1>
-      
-      
-      <ContactForm />
+    <HeroSection/>
+    <AboutSection/>
+      <ContactSection/>
 
     </main>
   );

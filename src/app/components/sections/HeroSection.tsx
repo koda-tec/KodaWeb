@@ -1,18 +1,19 @@
 
-export default function HeroSection() {
-  return (
-    <section className="flex min-h-screen flex-col items-center justify-center bg-background p-24">
-      <div className="text-center">
-        <h1 className="text-5xl font-bold text-secondary">
-          KODA
-        </h1>
-        <p className="mt-4 text-2xl text-primary">
-          Software con calidad desde la raíz 🌱
-        </p>
-        <button className="mt-8 rounded-lg bg-primary px-6 py-3 font-bold text-on-primary transition hover:bg-secondary">
-          Prueba de Botón
-        </button>
-      </div>
+export default function HeroSection(){
+  return(
+    <section 
+      id='inicio'
+      className="relative bg-koda-blue text-white min-h-screen flex items-center justify-center text-center">
+        <div className='px-4'>
+          <h1 className='text-5xl md:text-7xl font-bold leading-tight mb-4'>
+            Software con <br /> calidad desde la raíz
+          </h1>
+          <p>Desarrollamos software de calidad que impulsa tu negocio</p>
+          <a href="#servicios"
+          className='bg-koda-green hover:bg-green-700 text-white font-bold py-3 px-8 rounded-lg text-lg transition-colors'>
+            Conoce nuestros servicios
+          </a>
+        </div>
     </section>
   )
 }
