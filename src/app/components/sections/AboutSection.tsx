@@ -12,8 +12,8 @@ export default function AboutSection(){
                     <InfoCard title="Visión"/>
                     <InfoCard title="Valores"/>
                 </div>
-                <a href="/filosofia" // Puedes cambiar esto a la página correcta
-                   className="bg-koda-green hover:bg-green-700 text-white font-bold py-3 px-8 rounded-lg text-lg transition-colors">
+                <a href="/filosofia"
+                   className="bg-koda-green-emerald hover:bg-opacity-90 text-white font-bold py-3 px-8 rounded-lg text-lg transition-colors">
                     Conoce sobre KODA
                    </a>
             </div>
