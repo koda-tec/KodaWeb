@@ -1,5 +1,6 @@
 import Link from 'next/link';
 
+
 export default function Header() {
   return (
     // Usamos el fondo gris claro y una sombra
