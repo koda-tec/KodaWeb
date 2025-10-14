@@ -4,7 +4,7 @@ export default function ServicesSection(){
     return (
         <section id="servicios" className="py-20 px-4 bg-white">
             <div className="container mx-auto text-center">
-                <h2  className="text-4xl font-bold text-koda-dark mb-12">
+                <h2  className="text-4xl font-bold text-blue mb-12">
 Qué hacemos
                 </h2>
                 <div  className="grid grid-cols-1 md:grid-cols-3 gap-8">

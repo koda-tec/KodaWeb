@@ -23,7 +23,7 @@ export default function Header() {
 
         {/* Botón CTA con el verde brillante */}
         <Link href="/contacto">
-          <button className="hidden md:block bg-green px-5 py-2.5 font-bold text-white rounded-lg transition hover:opacity-90">
+          <button className="hidden md:block bg-koda-green-emerald px-5 py-2.5 font-bold text-white rounded-lg transition hover:opacity-90">
             Hablemos
           </button>
         </Link>

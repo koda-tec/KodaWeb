@@ -5,7 +5,7 @@ import { FaGithub, FaFacebook, FaInstagram } from 'react-icons/fa';
 export default function Footer() {
   return (
    
-    <footer className="bg-koda-green-emerald text-white pt-16 pb-8 px-4">
+    <footer className="bg-koda-blue-marino text-white pt-16 pb-8 px-4">
       <div className="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-12 text-center md:text-left">
         {/*Navegación */}
         <div>

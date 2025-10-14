@@ -1,24 +1,22 @@
 // tailwind.config.ts
+
 import type { Config } from 'tailwindcss'
 
 const config: Config = {
+  // La parte MÁS IMPORTANTE: define dónde buscar tus clases.
+  // ¡Esto debe quedarse!
   content: [
     './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
     './src/components/**/*.{js,ts,jsx,tsx,mdx}',
     './src/app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
+
+  // La sección 'theme' puede quedar completamente vacía, 
+  // ya que ahora manejarás todo desde tu globals.css.
   theme: {
-    extend: {
-      colors: {
-        // Tu nueva paleta de colores:
-        'koda-blue-deep': '#003366',       // Azul Profundo (Inicio del degradado)
-        'koda-blue-marino': '#0050A1',     // Azul Marino (Fin del degradado)
-        'koda-green-emerald': '#1EAD4E',  // Verde Esmeralda (Acentos y botones)
-        'koda-dark': '#333333',           // Negro/Gris Oscuro (Textos)
-        'koda-gray-light': '#F5F5F5',      // Gris claro para el fondo de las tarjetas
-      },
-    },
+    extend: {},
   },
+
   plugins: [],
 }
 export default config

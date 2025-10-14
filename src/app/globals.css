@@ -1,10 +1,9 @@
 @import "tailwindcss";
 
 @theme {
-  --color-blue: #003366;          /* Azul marino oscuro (Principal para texto) */
-  --color-green: #009933;         /* Verde brillante (Botones, acentos) */
-  --color-green-dark: #006633;    /* Verde oscuro (Footer) */
-  --color-dark: #333333;          /* Texto secundario */
-  --color-gray-light: #F5F5F5;    /* Fondos */
-  --color-white: #FFFFFF;         /* Texto sobre fondos oscuros */
+  --color-koda-blue-deep: #003366;
+  --color-koda-blue-marino: #0050A1;
+  --color-koda-green-emerald: #1EAD4E;
+  --color-koda-dark: #333333;
+  --color-koda-gray-light: #F5F5F5;
 }
