@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image'
 
 export default function Header() {
   return (
@@ -7,9 +8,14 @@ export default function Header() {
       <div className="container mx-auto flex items-center justify-between p-4">
         
         
-        <Link href="/" className="text-2xl font-bold text-koda-blue-deep">
-          KODA 🌱
-        </Link>
+        <Link href="/">
+  <Image
+    src="/logokoda.jpeg"
+    alt="Logo de KODA - Software con calidad desde la raíz" 
+    width={1248}  
+    height={832} 
+  />
+</Link>
 
      
         <nav className="hidden space-x-8 md:flex">
