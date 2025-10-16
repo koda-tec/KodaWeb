@@ -18,7 +18,7 @@ import { CtaSlide } from '@/app/components/about-slides/CtaSlide';
 
 export default function AboutPage() {
   return (
-    <div className="bg-white min-h-screen flex flex-col items-center justify-center py-12">
+    <div className="bg-white min-h-screen flex flex-col items-center justify-center py-12 px-4">
       <Swiper
         
         modules={[Navigation, Pagination, A11y]}

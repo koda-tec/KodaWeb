@@ -9,9 +9,9 @@ const DiffItem = ({ icon, title, text }: { icon: React.ReactNode, title: string,
 );
 
 export const DifferentiatorsSlide = () => (
-  <div className="p-10 text-center h-[60vh] flex flex-col justify-center">
-    <h2 className="text-3xl font-bold text-koda-dark mb-2">Qué nos diferencia</h2>
-    <p className="mb-8 text-koda-dark">No solo desarrollamos software, creamos soluciones pensadas para crecer con tu negocio.</p>
+  <div className="p-6 md:p-10 text-center min-h-[70vh] flex flex-col justify-center">
+    <h2 className="text-2xl md:text-3xl font-bold text-koda-dark mb-2">Qué nos diferencia</h2>
+    <p className="mb-8 text-sm md:text-base text-koda-dark">No solo desarrollamos software, creamos soluciones pensadas para crecer con tu negocio.</p>
     <div className="grid md:grid-cols-3 gap-6">
       <DiffItem icon={<FaCog />} title="Personalización total" text="Software diseñado a tu medida." />
       <DiffItem icon={<FaSitemap />} title="Metodología ágil" text="Procesos claros y trazables." />
