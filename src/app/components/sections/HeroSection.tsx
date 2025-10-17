@@ -51,10 +51,10 @@ export default function HeroSection() {
         >
           {/* Recuerda poner tu imagen real aquí */}
           <Image
-            src="/hero-illustration.svg" 
+            src="/heroS.png" 
             alt="Ilustración de desarrollo de software"
-            width={500}
-            height={400}
+            width={1536}
+            height={1024}
             className="w-full max-w-lg drop-shadow-2xl"
           />
         </motion.div>
