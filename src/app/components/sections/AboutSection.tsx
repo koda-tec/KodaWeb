@@ -36,7 +36,7 @@ export default function AboutSection() {
         <motion.h2 
           initial={{ opacity: 0, y: -20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }} 
+          viewport={{ once: false }} 
 
           transition={{ duration: 0.6 }}
           className="text-4xl md:text-5xl font-bold text-koda-dark mb-16"
@@ -50,7 +50,7 @@ export default function AboutSection() {
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: false, amount: 0.2 }}
 
         >
           {aboutData.map((item) => (
@@ -64,7 +64,7 @@ export default function AboutSection() {
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
           whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true }}
+          viewport={{ once: false}}
           transition={{ delay: 0.6, duration: 0.4 }}
         >
           <Link href="/filosofia">

@@ -31,7 +31,7 @@ export default function ServicesSection() {
         <motion.h2 
            initial={{ opacity: 0, y: -20 }}
            whileInView={{ opacity: 1, y: 0 }}
-           viewport={{ once: true }}
+           viewport={{ once: false }}
            transition={{ duration: 0.6 }}
            className="text-4xl md:text-5xl font-bold text-koda-dark mb-4"
         >
@@ -40,7 +40,7 @@ export default function ServicesSection() {
         <motion.p
            initial={{ opacity: 0 }}
            whileInView={{ opacity: 1 }}
-           viewport={{ once: true }}
+           viewport={{ once: false }}
            transition={{ delay: 0.2, duration: 0.6 }}
           
            className="text-koda-dark/80 mb-16 max-w-2xl mx-auto text-lg"
@@ -53,7 +53,7 @@ export default function ServicesSection() {
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.1 }}
+          viewport={{ once: false, amount: 0.1 }}
         >
           {servicesData.map((item) => (
       
