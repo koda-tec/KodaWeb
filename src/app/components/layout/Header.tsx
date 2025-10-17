@@ -16,7 +16,7 @@ export default function Header() {
        
         <Link href="/" className="z-20">
           <Image
-            src="/logokoda.png" 
+            src="/public/logoKoda.png" 
             alt="Logo de KODA"
             width={1024}  
             height={1024} 
