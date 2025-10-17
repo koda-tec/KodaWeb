@@ -19,3 +19,11 @@
   
   --color-btn-end: #084826;
 }
+
+.swiper-button-next,
+.swiper-button-prev {
+  color: var(--color-koda-blue-deep) !important;
+}
+.swiper-pagination-bullet-active {
+  background-color: var(--color-koda-green-emerald) !important;
+}
