@@ -1,24 +1,67 @@
+
+"use client";
+
 import FeatureCard from '@/app/components/ui/FeatureCard';
 import { FaLaptopCode, FaMobileAlt, FaDraftingCompass } from 'react-icons/fa';
 
+import { motion, Variants } from 'framer-motion';
+
 const servicesData = [
-  { icon: <FaLaptopCode size={24} />, title: "Desarrollo web", description: "Pareáxca delec ude Dwtenrías sondlerios remocotriades.", href: "/servicios/desarrollo-web" },
-  { icon: <FaMobileAlt size={24} />, title: "Aplicaciones móviles", description: "Parentileon s omosñaa en particínisaa.", href: "/servicios/apps-moviles" },
-  { icon: <FaDraftingCompass size={24} />, title: "Sistemas a medida", description: "Payeroa.sraactaa contartos nne.tionees.", href: "/servicios/sistemas-a-medida" },
+  { icon: <FaLaptopCode size={24} />, title: "Desarrollo web", description: "Sitios y aplicaciones web modernas y rápidas.", href: "/servicios" },
+  { icon: <FaMobileAlt size={24} />, title: "Aplicaciones móviles", description: "Apps nativas o híbridas para iOS y Android.", href: "/servicios" },
+  { icon: <FaDraftingCompass size={24} />, title: "Sistemas a medida", description: "Software diseñado específicamente para tus procesos.", href: "/servicios" },
 ];
+
+
+const containerVariants: Variants = {
+  hidden: { opacity: 0 },
+  visible: { opacity: 1, transition: { staggerChildren: 0.2 } }
+};
+
+
+const itemVariants: Variants = {
+  hidden: { opacity: 0, y: 30 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.5, type: "spring", stiffness: 100 } }
+};
 
 export default function ServicesSection() {
   return (
-    <section id="que-hacemos" className="py-24 px-4 bg-white">
+    <section id="que-hacemos" className="py-24 px-4 bg-koda-gray-light/30 overflow-hidden">
       <div className="container mx-auto text-center">
-        <h2 className="text-4xl md:text-5xl font-bold text-koda-dark mb-16">
+        <motion.h2 
+           initial={{ opacity: 0, y: -20 }}
+           whileInView={{ opacity: 1, y: 0 }}
+           viewport={{ once: true }}
+           transition={{ duration: 0.6 }}
+           className="text-4xl md:text-5xl font-bold text-koda-dark mb-4"
+        >
           Qué hacemos
-        </h2>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        </motion.h2>
+        <motion.p
+           initial={{ opacity: 0 }}
+           whileInView={{ opacity: 1 }}
+           viewport={{ once: true }}
+           transition={{ delay: 0.2, duration: 0.6 }}
+          
+           className="text-koda-dark/80 mb-16 max-w-2xl mx-auto text-lg"
+        >
+          Ofrecemos soluciones tecnológicas integrales adaptadas a las necesidades de tu empresa.
+        </motion.p>
+
+        <motion.div 
+          className="grid grid-cols-1 md:grid-cols-3 gap-8"
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.1 }}
+        >
           {servicesData.map((item) => (
-            <FeatureCard key={item.title} {...item} />
+      
+            <motion.div key={item.title} variants={itemVariants} className="h-full">
+              <FeatureCard {...item} />
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );
