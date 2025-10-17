@@ -115,11 +115,13 @@ export default function ContactForm() {
       {success && <div className={messageStyles.success}>{success}</div>}
       {error && <div className={messageStyles.error}>{error}</div>}
 
-      <div>
+        <div>
+        
         <button
           type="submit"
           disabled={loading}
-          className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 disabled:bg-gray-400"
+          className="w-full flex justify-center font-bold text-white rounded-lg transition-opacity hover:opacity-90 py-3 px-4 
+                     bg-gradient-to-r from-btn-start to-btn-end disabled:bg-gray-400 disabled:bg-none"
         >
           {loading ? 'Enviando...' : 'Enviar'}
         </button>
