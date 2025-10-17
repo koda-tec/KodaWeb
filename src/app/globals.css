@@ -1,15 +1,21 @@
 @import "tailwindcss";
 
 @theme {
+ 
   --color-koda-blue-deep: #003366;
   --color-koda-blue-marino: #0050A1;
-
   --color-koda-green-light: #34D399;
   --color-koda-green-emerald: #1EAD4E;
-  
   --color-koda-dark: #333333;
   --color-koda-gray-light: #F5F5F5;
-  
-
   --color-koda-border: #E5E7EB;
+
+ 
+  --color-hero-start: #005CC8;
+  --color-hero-end: #002D62;
+
+ 
+  --color-btn-start: #22C55E; 
+  
+  --color-btn-end: #084826;
 }
