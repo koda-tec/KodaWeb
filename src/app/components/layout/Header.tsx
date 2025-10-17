@@ -20,7 +20,7 @@ export default function Header() {
             alt="Logo de KODA"
             width={1024}  
             height={1024} 
-            className="h-10 w-auto"
+            className="h-15 w-auto"
           />
         </Link>
 
