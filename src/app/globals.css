@@ -27,3 +27,26 @@
 .swiper-pagination-bullet-active {
   background-color: var(--color-koda-green-emerald) !important;
 }
+
+/* 🎨 Gradientes personalizados */
+.bg-koda-gradient {
+  @apply bg-gradient-to-r from-[#179152] to-[#074186];
+}
+
+.text-gradient {
+  background: linear-gradient(to right, #179152, #074186);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* ✨ Microinteracciones (hover) */
+.btn-animated {
+  @apply transition-transform duration-300 hover:-translate-y-1 hover:opacity-90;
+}
+
+/* 🌿 Efecto glassmorphism opcional (para header o tarjetas) */
+.glass {
+  background: rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
