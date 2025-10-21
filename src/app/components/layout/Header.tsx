@@ -1,56 +1,108 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
+import { motion, AnimatePresence } from "framer-motion";
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
+  const [scrolled, setScrolled] = useState(false);
+
+  // Cambia el fondo al hacer scroll
+  useEffect(() => {
+    const handleScroll = () => setScrolled(window.scrollY > 10);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  const toggleMenu = () => setIsMenuOpen((prev) => !prev);
+  const closeMenu = () => setIsMenuOpen(false);
 
   return (
-    <header className="sticky top-0 z-50 glass">
-      <div className="container mx-auto flex items-center justify-between p-4">
-        <Link href="/" className="z-20">
-          <span className="text-2xl font-bold text-koda-blue-deep">KODA 🌱</span>
+    <header
+      className={`fixed top-0 left-0 w-full z-50 transition-all ${
+        scrolled
+          ? "bg-white/80 backdrop-blur-md shadow-sm"
+          : "bg-transparent"
+      }`}
+    >
+      <div className="flex items-center justify-between max-w-7xl mx-auto px-4 py-3 md:py-4">
+        {/* Logo */}
+        <Link href="/" onClick={closeMenu} className="font-bold text-2xl text-koda-blue-deep">
+          KODA 🌱
         </Link>
 
-        {/* Desktop nav */}
-        <nav className="hidden md:flex items-center space-x-8">
-          <Link href="/servicios" className="text-koda-dark nav-link">Servicios</Link>
-          <Link href="/filosofia" className="text-koda-dark nav-link">Nuestra Filosofía</Link>
+        {/* Desktop navigation */}
+        <nav className="hidden md:flex items-center space-x-8 text-koda-dark">
+          <Link href="/servicios" className="nav-link">Servicios</Link>
+          <Link href="/filosofia" className="nav-link">Nuestra Filosofía</Link>
+          <Link href="/contacto" className="nav-link">Contacto</Link>
         </nav>
 
-        {/* CTA */}
+      
         <div className="hidden md:block">
           <Link href="/contacto">
-            <button className="bg-koda-gradient text-white font-bold py-2.5 px-5 rounded-lg btn-animated">
+            <button className="bg-koda-gradient text-white px-5 py-2.5 rounded-lg font-semibold btn-animated">
               Hablemos
             </button>
           </Link>
         </div>
 
-        {/* Mobile menu button */}
-        <div className="md:hidden">
-          <button onClick={toggleMenu} aria-label="Abrir menú" className="z-20">
-            <svg className="w-6 h-6 text-koda-blue-deep" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16m-7 6h7" />
-            </svg>
-          </button>
-        </div>
+        {/* Hamburger menu  */}
+        <button
+          onClick={toggleMenu}
+          className="md:hidden p-2 rounded-lg border border-gray-300 focus:outline-none"
+          aria-label="Abrir menú"
+        >
+          <svg
+            className="w-6 h-6 text-koda-dark"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            {isMenuOpen ? (
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M6 18L18 6M6 6l12 12"
+              />
+            ) : (
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M4 6h16M4 12h16M4 18h16"
+              />
+            )}
+          </svg>
+        </button>
       </div>
 
-      {/* Mobile nav */}
-      <div className={`md:hidden px-4 pb-4 transition-transform ${isMenuOpen ? "translate-x-0" : "-translate-x-full"}`}>
-        <nav className="flex flex-col items-start space-y-4 text-xl">
-          <Link href="/servicios" onClick={toggleMenu} className="text-koda-dark nav-link">Servicios</Link>
-          <Link href="/filosofia" onClick={toggleMenu} className="text-koda-dark nav-link">Nuestra Filosofía</Link>
-        </nav>
-        <Link href="/contacto" onClick={toggleMenu}>
-          <button className="mt-4 bg-koda-gradient text-white font-bold rounded-lg text-lg w-full max-w-xs py-3 px-8 btn-animated">
-            Hablemos
-          </button>
-        </Link>
-      </div>
+      {/* Mobile menu  */}
+      <AnimatePresence>
+        {isMenuOpen && (
+          <motion.nav
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: "auto", opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.25 }}
+            className="md:hidden bg-white shadow-lg border-t border-gray-100"
+          >
+            <div className="flex flex-col px-6 py-3 space-y-3 text-koda-dark text-lg">
+              <Link href="/servicios" onClick={closeMenu}>Servicios</Link>
+              <Link href="/filosofia" onClick={closeMenu}>Nuestra Filosofía</Link>
+              <Link href="/contacto" onClick={closeMenu}>Contacto</Link>
+
+              <Link href="/contacto" onClick={closeMenu}>
+                <button className="w-full bg-koda-gradient text-white py-2 rounded-lg mt-2 font-semibold">
+                  Hablemos
+                </button>
+              </Link>
+            </div>
+          </motion.nav>
+        )}
+      </AnimatePresence>
     </header>
   );
 }
