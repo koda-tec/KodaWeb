@@ -96,7 +96,7 @@ export default function Footer() {
           animate={{ opacity: [0.8, 1, 0.8] }}
           transition={{ repeat: Infinity, duration: 3 }}
         >
-          Hecho con ❤️ por <span className="font-semibold">KODA</span>
+          Hecho por <span className="font-semibold">KODA</span>
         </motion.p>
       </div>
     </footer>
