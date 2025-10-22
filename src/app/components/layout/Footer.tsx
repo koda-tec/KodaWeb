@@ -80,15 +80,15 @@ export default function Footer() {
 
         {/* --- Columna 4: Marca y redes --- */}
         <div className="flex flex-col items-center md:items-start">
-         <div className="relative w-48 h-20 mb-3 md:w-52 md:h-24">
-  <Image
-    src="/logoKoda.png"
-    alt="Logo de KODA"
-    fill
-    className="object-contain"
-    priority
-  />
-</div>
+         <div className="relative w-64 h-36 mb-4 md:w-72 md:h-40">
+    <Image
+      src="/logoKoda.png"
+      alt="Logo de KODA"
+      fill
+      className="object-contain"
+      priority
+    />
+  </div>
           <p className="text-gray-200 text-sm mb-4">Software con calidad desde la raíz.</p>
           <div className="flex space-x-4 mt-2">
             <a href="#" aria-label="GitHub" className="text-2xl text-gray-200 hover:text-white"><FaGithub /></a>
