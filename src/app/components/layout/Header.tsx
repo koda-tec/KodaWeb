@@ -28,18 +28,19 @@ export default function Header() {
       }`}
     >
       <div className="flex items-center justify-between max-w-7xl mx-auto px-4 py-3 md:py-4">
-        {/* 🔹 Logo solo */}
-        <Link href="/" onClick={closeMenu} className="flex items-center">
-          <Image
-  src="/logoKoda.png"
-  alt="Logo de KODA"
-  width={200}
-  height={200}
-  style={{ width: "80px", height: "80px" }}
-  className="object-contain transition-transform duration-300 hover:scale-105"
-  priority
-/>
-        </Link>
+        {/* 🔹 Logo */}
+        <Link href="/" onClick={closeMenu} className="flex items-center h-12 md:h-14">
+  <div className="relative w-24 md:w-28 h-full flex items-center">
+    <Image
+      src="/logoKoda.png"
+      alt="Logo de KODA"
+      fill
+      className="object-contain object-left transition-transform duration-300 hover:scale-105"
+      priority
+    />
+  </div>
+</Link>
+
 
         {/* 🔹 Navegación escritorio */}
         <nav className="hidden md:flex items-center space-x-8 text-koda-dark font-medium">
