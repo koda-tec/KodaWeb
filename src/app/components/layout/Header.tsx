@@ -33,8 +33,8 @@ export default function Header() {
           <Image
             src="/logoKoda.png" 
             alt="Logo de KODA"
-            width={60}
-            height={60}
+            width={90}
+            height={90}
             className="w-10 h-10 md:w-12 md:h-12 object-contain transition-transform duration-300 hover:scale-105"
             priority
           />
