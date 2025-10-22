@@ -31,13 +31,14 @@ export default function Header() {
         {/* 🔹 Logo solo */}
         <Link href="/" onClick={closeMenu} className="flex items-center">
           <Image
-            src="/logoKoda.png" 
-            alt="Logo de KODA"
-            width={150}
-            height={150}
-            className="w-10 h-10 md:w-12 md:h-12 object-contain transition-transform duration-300 hover:scale-105"
-            priority
-          />
+  src="/logoKoda.png"
+  alt="Logo de KODA"
+  width={200}
+  height={200}
+  style={{ width: "80px", height: "80px" }}
+  className="object-contain transition-transform duration-300 hover:scale-105"
+  priority
+/>
         </Link>
 
         {/* 🔹 Navegación escritorio */}
