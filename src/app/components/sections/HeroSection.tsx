@@ -36,7 +36,7 @@ export default function HeroSection() {
           animate="visible"
           transition={{ staggerChildren: 0.2 }}
         >
-          <motion.h1 variants={fadeInUp} className="text-5xl lg:text-7xl font-bold leading-tight mb-4 text-gradient">
+          <motion.h1 variants={fadeInUp} className="text-5xl lg:text-7xl font-bold leading-tight mb-4 text-white">
             Software con calidad desde la raíz
           </motion.h1>
 
