@@ -30,13 +30,13 @@ export default function Header() {
       <div className="flex items-center justify-between max-w-7xl mx-auto px-4 py-3 md:py-4">
 
         {/* 🔹 Logo */}
-        <Link href="/" onClick={closeMenu} className="flex items-center h-12 md:h-14 pl-6 md:pl-8">
+        <Link href="/" onClick={closeMenu} className="flex items-center h-12 md:h-14 pl-10 md:pl-14">
   <div className="relative w-40 md:w-48 h-full flex items-center overflow-visible">
     <Image
       src="/logoKoda.png"
       alt="Logo de KODA"
       fill
-      className="object-contain object-left scale-[1.8] md:scale-[2] -translate-y-1 md:-translate-y-1 transition-transform duration-300 hover:scale-[2.1]"
+      className="object-contain object-left scale-[1.9] md:scale-[2.1] -translate-y-1 transition-transform duration-300 hover:scale-[2.15]"
       priority
     />
   </div>
