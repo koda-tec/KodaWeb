@@ -23,32 +23,32 @@ export default function Header() {
     <header
       className={`fixed top-0 left-0 w-full z-50 transition-all ${
         scrolled
-          ? "bg-white/80 backdrop-blur-md shadow-sm"
-          : "bg-transparent"
+          ? "bg-white/90 backdrop-blur-md shadow-md"
+          : "bg-white/70 backdrop-blur-sm"
       }`}
     >
       <div className="flex items-center justify-between max-w-7xl mx-auto px-4 py-3 md:py-4">
         {/* 🔹 Logo solo */}
         <Link href="/" onClick={closeMenu} className="flex items-center">
           <Image
-            src="/icono.png" 
+            src="/icono.png"
             alt="Logo de KODA"
-            width={44}
-            height={44}
-            className="w-10 h-10 md:w-12 md:h-12 object-contain"
+            width={48}
+            height={48}
+            className="w-10 h-10 md:w-12 md:h-12 object-contain transition-transform duration-300 hover:scale-105"
             priority
           />
         </Link>
 
         {/* 🔹 Navegación escritorio */}
-        <nav className="hidden md:flex items-center space-x-8 text-koda-dark">
-          <Link href="/servicios" className="nav-link">
+        <nav className="hidden md:flex items-center space-x-8 text-koda-dark font-medium">
+          <Link href="/servicios" className="hover:text-koda-green-emerald transition-colors">
             Servicios
           </Link>
-          <Link href="/filosofia" className="nav-link">
+          <Link href="/filosofia" className="hover:text-koda-green-emerald transition-colors">
             Nuestra Filosofía
           </Link>
-          <Link href="/contacto" className="nav-link">
+          <Link href="/contacto" className="hover:text-koda-green-emerald transition-colors">
             Contacto
           </Link>
         </nav>
@@ -65,7 +65,7 @@ export default function Header() {
         {/* 🔹 Menú móvil */}
         <button
           onClick={toggleMenu}
-          className="md:hidden p-2 rounded-lg border border-gray-300 focus:outline-none"
+          className="md:hidden p-2 rounded-lg border border-gray-300 focus:outline-none bg-white/60 backdrop-blur-sm"
           aria-label="Abrir menú"
         >
           <svg
