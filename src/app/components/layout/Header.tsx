@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 
 export default function Header() {
@@ -27,19 +28,32 @@ export default function Header() {
       }`}
     >
       <div className="flex items-center justify-between max-w-7xl mx-auto px-4 py-3 md:py-4">
-        {/* Logo */}
-        <Link href="/" onClick={closeMenu} className="font-bold text-2xl text-koda-blue-deep">
-          KODA 🌱
+        {/* 🔹 Logo solo */}
+        <Link href="/" onClick={closeMenu} className="flex items-center">
+          <Image
+            src="/icono.png" 
+            alt="Logo de KODA"
+            width={44}
+            height={44}
+            className="w-10 h-10 md:w-12 md:h-12 object-contain"
+            priority
+          />
         </Link>
 
-        {/* Desktop navigation */}
+        {/* 🔹 Navegación escritorio */}
         <nav className="hidden md:flex items-center space-x-8 text-koda-dark">
-          <Link href="/servicios" className="nav-link">Servicios</Link>
-          <Link href="/filosofia" className="nav-link">Nuestra Filosofía</Link>
-          <Link href="/contacto" className="nav-link">Contacto</Link>
+          <Link href="/servicios" className="nav-link">
+            Servicios
+          </Link>
+          <Link href="/filosofia" className="nav-link">
+            Nuestra Filosofía
+          </Link>
+          <Link href="/contacto" className="nav-link">
+            Contacto
+          </Link>
         </nav>
 
-      
+        {/* 🔹 Botón CTA */}
         <div className="hidden md:block">
           <Link href="/contacto">
             <button className="bg-koda-gradient text-white px-5 py-2.5 rounded-lg font-semibold btn-animated">
@@ -48,7 +62,7 @@ export default function Header() {
           </Link>
         </div>
 
-        {/* Hamburger menu  */}
+        {/* 🔹 Menú móvil */}
         <button
           onClick={toggleMenu}
           className="md:hidden p-2 rounded-lg border border-gray-300 focus:outline-none"
@@ -79,7 +93,7 @@ export default function Header() {
         </button>
       </div>
 
-      {/* Mobile menu  */}
+      {/* 🔹 Menú desplegable móvil */}
       <AnimatePresence>
         {isMenuOpen && (
           <motion.nav
@@ -90,9 +104,15 @@ export default function Header() {
             className="md:hidden bg-white shadow-lg border-t border-gray-100"
           >
             <div className="flex flex-col px-6 py-3 space-y-3 text-koda-dark text-lg">
-              <Link href="/servicios" onClick={closeMenu}>Servicios</Link>
-              <Link href="/filosofia" onClick={closeMenu}>Nuestra Filosofía</Link>
-              <Link href="/contacto" onClick={closeMenu}>Contacto</Link>
+              <Link href="/servicios" onClick={closeMenu}>
+                Servicios
+              </Link>
+              <Link href="/filosofia" onClick={closeMenu}>
+                Nuestra Filosofía
+              </Link>
+              <Link href="/contacto" onClick={closeMenu}>
+                Contacto
+              </Link>
 
               <Link href="/contacto" onClick={closeMenu}>
                 <button className="w-full bg-koda-gradient text-white py-2 rounded-lg mt-2 font-semibold">
