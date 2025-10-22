@@ -80,7 +80,7 @@ export default function Footer() {
 
         {/* --- Columna 4: Marca y redes --- */}
         <div className="flex flex-col items-center md:items-start">
-          <div className="relative w-36 h-14 mb-3">
+          <div className="relative w-45 h-18 mb-3">
     <Image
       src="/logoKoda.png"
       alt="Logo de KODA"
