@@ -31,7 +31,7 @@ export default function Header() {
         {/* 🔹 Logo solo */}
         <Link href="/" onClick={closeMenu} className="flex items-center">
           <Image
-            src="/iconologo.png" 
+            src="/logoKoda.png" 
             alt="Logo de KODA"
             width={48}
             height={48}
