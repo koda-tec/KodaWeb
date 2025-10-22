@@ -4,6 +4,7 @@ import Link from "next/link";
 import { FaGithub, FaFacebook, FaInstagram, FaEnvelope } from "react-icons/fa";
 import { motion } from "framer-motion";
 import { useState } from "react";
+import Image from "next/image";
 
 export default function Footer() {
   const [email, setEmail] = useState("");
@@ -79,7 +80,15 @@ export default function Footer() {
 
         {/* --- Columna 4: Marca y redes --- */}
         <div className="flex flex-col items-center md:items-start">
-          <span className="text-3xl font-bold mb-3">KODA 🌱</span>
+          <div className="relative w-36 h-14 mb-3">
+    <Image
+      src="/logoKoda.png"
+      alt="Logo de KODA"
+      fill
+      className="object-contain"
+      priority
+    />
+  </div>
           <p className="text-gray-200 text-sm mb-4">Software con calidad desde la raíz.</p>
           <div className="flex space-x-4 mt-2">
             <a href="#" aria-label="GitHub" className="text-2xl text-gray-200 hover:text-white"><FaGithub /></a>
